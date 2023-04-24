@@ -34,6 +34,7 @@ def home(request):
     context = {
         "lc_problem_details": leetcode_problems
     }
+    print(context)
     return render(request, "LC_SearchEngine/home.html", context)
 
 
@@ -43,9 +44,11 @@ def about_us(request):
 
 def data_view(request):
     lc = get_data()
-    print(lc)
+    for item in lc:
+        print(item[1])
     context = {
         "lc_problem_details": leetcode_problems
     }
+    #print(context)
     return render(request, "LC_SearchEngine/data.html", context)
 
