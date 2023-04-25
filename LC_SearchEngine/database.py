@@ -11,8 +11,5 @@ def get_data():
     """ TEMP QUERY
     Need to make use of user parameters
     """
-    data = LeetcodeData.objects.filter(title__regex=r'',
-                                       is_premium=0,
-                                       acceptance_rate__gte=37,
-                                       difficulty__regex=r'').all()
+    data = LeetcodeData.objects.filter().all()
     return data
