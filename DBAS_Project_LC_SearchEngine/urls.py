@@ -16,6 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 
 from LC_SearchEngine.views import display_query_form, data_view
 from users import views as user_views
@@ -30,5 +32,7 @@ urlpatterns = [
     path("query/", display_query_form, name='query'),
     path("results/", data_view, name='results'),
     path("", include('LC_SearchEngine.urls'))
-
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
