@@ -4,30 +4,6 @@
 
 <h3> Passionate about improving problem-solving skills? </h3>
 
-<!--    {% for problem in lc_problem_details %}-->
-
-<!--        <article class="media content-section">-->
-<!--          <div class="media-body">-->
-<!--            <div class="article-metadata">-->
-<!--              <h4><a class="article-title" href="#"> {{ problem.title }} </a></h4>-->
-<!--            </div>-->
-
-<!--              <p class="article-content"> <b> Description: </b> {{ problem.description }}</p>-->
-<!--              <p class="article-content"> <b> Problem Difficulty: </b> {{ problem.difficulty }}</p>-->
-<!--              <p class="article-content"> <b> URL: </b> {{ problem.url }} </p>-->
-<!--              <p class="article-content"> <b> Companies: </b> {{ problem.companies }} </p>-->
-<!--              <p class="article-content"> <b> Related Topics: </b> {{ problem.related_topics }} </p>-->
-<!--              <p class="article-content"> <b> Likes: </b> {{ problem.likes }} </p>-->
-<!--              <p class="article-content"> <b> Dislikes: </b> {{ problem.dislikes }} </p>-->
-<!--              <p class="article-content"> <b> Rating: </b> {{ problem.rating }} </p>-->
-<!--              <p class="article-content"> <b> Asked by FAANG: </b> {{ problem.asked_by_faang }} </p>-->
-
-<!--          </div>-->
-<!--        </article>-->
-
-<!--    {% endfor %}-->
-
-
     <article class="media content-section">
           <div class="media-body">
            <b>
@@ -38,7 +14,7 @@
 
     <!-- This is for directing users to the query form-->
     <div class="content-section">
-        <form method="POST">
+        <form method="POST" action="{% url 'query' %}">
             {% csrf_token %}
             <fieldset class="form-group">
                 <legend class="border-bottom mb-8">

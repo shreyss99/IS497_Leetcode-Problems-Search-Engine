@@ -1,11 +1,26 @@
 {% extends "LC_SearchEngine/base.html" %}
 {% block content %}
 
-<h3> Get the data here </h3>
-
+<h3> Your results! </h3>
+<br>
     <article class="media content-section">
           <div class="media-body">
-              <p> Great </p>
+              <table class="table table-bordered table-striped" border="2" cellpadding="20">
+                <thead>
+                    <tr>
+                        <th> Problem Title </th>
+                        <th> Problem URL </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for id, obj in fetched_lc_data.items %}
+                        <tr>
+                            <td> {{ obj.title }} </td>
+                            <td> <a href = "{{ obj.url }}"> {{obj.url}} </a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+              </table>
           </div>
     </article>
 
