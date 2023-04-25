@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from .forms import RegistrationForm
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate
 
 
 def register(request):
@@ -25,7 +26,14 @@ def login(request):
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
-            messages.success(request, f"Account created for {username}!")
+            password = form.cleaned_data.get('password')
+
+            user = authenticate(username=username, password=password)
+
+            if user is not None:
+                messages.success(request, f"Successfully logged in {username}!")
+            else:
+                messages.alert(request, f"{username} is not a valid user")
             return redirect('LC_SearchEngine_Home')
 
     else:
