@@ -18,7 +18,6 @@ def display_query_form(request):
 
     form = QueryForm()
     context = {'form': form}
-
     return render(request, "LC_SearchEngine/forms.html", context)
 
 

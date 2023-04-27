@@ -9,7 +9,8 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-
+import os
+from datetime import timedelta
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -32,6 +33,7 @@ INSTALLED_APPS = [
     "LC_SearchEngine.apps.LcSearchengineConfig",
     "users.apps.UsersConfig",
     "crispy_forms",
+    "postgresql_setrole",
     "crispy_bootstrap4",
     "django.contrib.admin",
     "django.contrib.auth",
@@ -49,6 +51,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "django_auto_logout.middleware.auto_logout",
 ]
 
 ROOT_URLCONF = "DBAS_Project_LC_SearchEngine.urls"
@@ -64,6 +67,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "django_auto_logout.context_processors.auto_logout_client",
             ],
         },
     },
@@ -76,12 +80,17 @@ WSGI_APPLICATION = "DBAS_Project_LC_SearchEngine.wsgi.application"
 
 DATABASES = {
     "default": {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    },
+    "readonly": {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'leetcode',
         'USER': 'postgres',
         'PASSWORD': 'postgres',
         'HOST': 'pranav-project.cluster-clzzjqzfbtse.us-east-1.rds.amazonaws.com',
         'PORT': '5432',
+        #'SET_ROLE': "mydatabaseowner",
     }
 }
 
@@ -119,6 +128,10 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+MEDIA_URL = '/media/'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
@@ -129,3 +142,13 @@ CRISPY_TEMPLATE_PACK = "bootstrap4"
 LOGIN_REDIRECT_URL = "LC_SearchEngine_Home"
 
 LOGIN_URL = "login"
+
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+
+AUTO_LOGOUT = {
+    'IDLE_TIME': timedelta(minutes=10),
+    'SESSION_TIME': timedelta(minutes=60),
+    'MESSAGE': 'The session has expired. Please login again to continue.',
+    'REDIRECT_TO_LOGIN_IMMEDIATELY': True,
+}
+
