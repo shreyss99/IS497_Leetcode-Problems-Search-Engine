@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
+import json
 import os
 from datetime import timedelta
 from pathlib import Path
@@ -33,7 +34,6 @@ INSTALLED_APPS = [
     "LC_SearchEngine.apps.LcSearchengineConfig",
     "users.apps.UsersConfig",
     "crispy_forms",
-    "postgresql_setrole",
     "crispy_bootstrap4",
     "django.contrib.admin",
     "django.contrib.auth",
@@ -88,9 +88,10 @@ DATABASES = {
         'NAME': 'leetcode',
         'USER': 'postgres',
         'PASSWORD': 'postgres',
-        'HOST': 'pranav-project.cluster-clzzjqzfbtse.us-east-1.rds.amazonaws.com',
+        'HOST': 'pranav-project-reader.clzzjqzfbtse.us-east-1.rds.amazonaws.com',
+        # 'HOST': 'pranav-project.cluster-clzzjqzfbtse.us-east-1.rds.amazonaws.com',
+        # 'HOST': 'pranav-project-instance-1.clzzjqzfbtse.us-east-1.rds.amazonaws.com',
         'PORT': '5432',
-        #'SET_ROLE': "mydatabaseowner",
     }
 }
 
@@ -152,3 +153,13 @@ AUTO_LOGOUT = {
     'REDIRECT_TO_LOGIN_IMMEDIATELY': True,
 }
 
+# with open(os.path.join(BASE_DIR, 'secrets.json')) as secrets_file:
+#     secrets = json.load(secrets_file)
+#
+#
+# def get_secret(setting, secrets=secrets):
+#     """Get secret setting or fail with ImproperlyConfigured"""
+#     try:
+#         return secrets[setting]
+#     except KeyError:
+#         raise ImproperlyConfigured("Set the {} setting".format(setting))
