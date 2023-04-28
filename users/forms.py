@@ -4,17 +4,6 @@ from django.contrib.auth.forms import UserCreationForm
 from users.models import Profile
 
 
-# class RegistrationForm(UserCreationForm):
-#
-#     ROLE_OPTIONS = [('user', 'User'), ('contributor', 'Contributor')]
-#     email = forms.EmailField(required=True)
-#     role = forms.ChoiceField(required=True, choices=ROLE_OPTIONS)
-#
-#     class Meta:
-#         model = User
-#         fields = ['username', 'email', 'password1', 'password2', 'role']
-
-
 class UserUpdateForm(forms.ModelForm):
     email = forms.EmailField()
 
