@@ -13,10 +13,10 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for id, obj in fetched_lc_data.items %}
+                    {% for obj in fetched_lc_data %}
                         <tr>
-                            <td> {{ obj.title }} </td>
-                            <td> <a href = "{{ obj.url }}"> {{obj.url}} </a></td>
+                            <td> {{ obj.1 }} </td>
+                            <td> <a href = "{{ obj.url }}"> {{obj.2}} </a></td>
                         </tr>
                     {% endfor %}
                 </tbody>
