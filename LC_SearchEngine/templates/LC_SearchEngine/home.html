@@ -13,7 +13,7 @@
           </div>
     </article>
 
-    <!-- This is for directing users to the query form-->
+    <!-- This is for directing users to the query form -->
     <div class="content-section">
         <form method="POST" action="{% url 'query_and_display' %}">
             {% csrf_token %}
@@ -26,6 +26,23 @@
             <div class="form-group">
                 <button class="btn btn-outline-info" type="submit">
                     Click Here
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <!-- This is for directing contributors to contribute form -->
+    <div class="content-section">
+        <form method="POST" action="{% url 'contribute' %}">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-8">
+                    Want to help other folks?
+                </legend>
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">
+                    Contribute
                 </button>
             </div>
         </form>

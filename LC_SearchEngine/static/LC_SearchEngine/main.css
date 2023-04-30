@@ -82,3 +82,11 @@ a.article-title:hover {
 .account-heading {
   font-size: 2.5rem;
 }
+
+input:required {
+    border: 2px solid #ccc; /* set the border to a different color */
+}
+
+.alert-danger {
+  color: red;
+}
