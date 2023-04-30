@@ -13,6 +13,8 @@ import json
 import os
 from datetime import timedelta
 from pathlib import Path
+from django.core.exceptions import ImproperlyConfigured
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,7 +25,20 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "django-insecure-dunqzi3yxef_+v!)^ehea2qm4w#oq%g#018=@*^uy^jk*rdyni"
 
-# SECURITY WARNING: don't run with debug turned on in production!
+
+''' Code for storing the database password securely'''
+with open(os.path.join(BASE_DIR, 'secrets.json')) as secrets_file:
+    secrets = json.load(secrets_file)
+
+
+def get_secret(setting, secrets=secrets):
+    """Get secret setting or fail with ImproperlyConfigured"""
+    try:
+        return secrets[setting]
+    except KeyError:
+        raise ImproperlyConfigured("Set the {} setting".format(setting))
+
+
 DEBUG = True
 
 ALLOWED_HOSTS = []
@@ -78,18 +93,25 @@ WSGI_APPLICATION = "DBAS_Project_LC_SearchEngine.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+SECRET_KEY = get_secret('SECRET_KEY')
+
+FAIL_OVER_DATABASE_DICTIONARY = {
+    'PRIMARY': 'pranav-project.cluster-clzzjqzfbtse.us-east-1.rds.amazonaws.com',
+    'SECONDARY': 'pranav-project-reader.clzzjqzfbtse.us-east-1.rds.amazonaws.com'
+}
+
 DATABASES = {
-    "default": {
+    "readonly": {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     },
-    "readonly": {
+    "default": {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'leetcode',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
-        'HOST': 'pranav-project-reader.clzzjqzfbtse.us-east-1.rds.amazonaws.com',
-        # 'HOST': 'pranav-project.cluster-clzzjqzfbtse.us-east-1.rds.amazonaws.com',
+        'USER': 'contributor',
+        'PASSWORD': get_secret('DB_PASSWORD'),
+        # 'HOST': FAIL_OVER_DATABASE_DICTIONARY['SECONDARY'],
+        'HOST': FAIL_OVER_DATABASE_DICTIONARY['PRIMARY'],
         # 'HOST': 'pranav-project-instance-1.clzzjqzfbtse.us-east-1.rds.amazonaws.com',
         'PORT': '5432',
     }
@@ -153,13 +175,5 @@ AUTO_LOGOUT = {
     'REDIRECT_TO_LOGIN_IMMEDIATELY': True,
 }
 
-# with open(os.path.join(BASE_DIR, 'secrets.json')) as secrets_file:
-#     secrets = json.load(secrets_file)
-#
-#
-# def get_secret(setting, secrets=secrets):
-#     """Get secret setting or fail with ImproperlyConfigured"""
-#     try:
-#         return secrets[setting]
-#     except KeyError:
-#         raise ImproperlyConfigured("Set the {} setting".format(setting))
+with open(os.path.join(BASE_DIR, 'secrets.json')) as secrets_file:
+    secrets = json.load(secrets_file)

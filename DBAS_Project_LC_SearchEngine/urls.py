@@ -19,7 +19,7 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-from LC_SearchEngine.views import data_view, query_and_display
+from LC_SearchEngine.views import query_and_display, contribute, thank
 from users import views as user_views
 from django.contrib.auth import views as auth_views
 
@@ -30,7 +30,8 @@ urlpatterns = [
     path("logout/", auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
     path("profile/", user_views.profile, name='profile'),
     path("query_and_display/", query_and_display, name='query_and_display'),
-    path("results/", data_view, name='results'),
+    path('contribute/', contribute, name='contribute'),
+    path('thank', thank, name='thank'),
     path("", include('LC_SearchEngine.urls'))
 ]
 
