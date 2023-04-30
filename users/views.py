@@ -1,4 +1,3 @@
-from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from users.forms import RegistrationForm, UserUpdateForm, ProfileUpdateForm
@@ -21,8 +20,8 @@ def login(request):
             if user is not None:
                 messages.success(request, f"Successfully logged in {username}!")
             else:
-                messages.alert(request, f"Not a valid user")
-            return redirect('LC_SearchEngine_Contributor')
+                messages.error(request, f"Not a valid user")
+            return redirect('LC_SearchEngine_Home')
 
     else:
         form = RegistrationForm()
