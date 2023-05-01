@@ -111,7 +111,9 @@ DATABASES = {
         'USER': 'contributor',
         'PASSWORD': get_secret('DB_PASSWORD'),
         # 'HOST': FAIL_OVER_DATABASE_DICTIONARY['SECONDARY'],
-        'HOST': FAIL_OVER_DATABASE_DICTIONARY['PRIMARY'],
+        # 'HOST': FAIL_OVER_DATABASE_DICTIONARY['PRIMARY'],
+        'HOST': get_secret('FAIL_OVER_DATABASE_DICTIONARY')['PRIMARY'],
+        # 'HOST': get_secret('FAIL_OVER_DATABASE_DICTIONARY')['SECONDARY'],
         'PORT': '5432',
     }
 }
