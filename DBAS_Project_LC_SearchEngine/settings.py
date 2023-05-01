@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-dunqzi3yxef_+v!)^ehea2qm4w#oq%g#018=@*^uy^jk*rdyni"
+# SECRET_KEY = "django-insecure-dunqzi3yxef_+v!)^ehea2qm4w#oq%g#018=@*^uy^jk*rdyni"
 
 
 ''' Code for storing the database password securely'''
@@ -112,7 +112,6 @@ DATABASES = {
         'PASSWORD': get_secret('DB_PASSWORD'),
         # 'HOST': FAIL_OVER_DATABASE_DICTIONARY['SECONDARY'],
         'HOST': FAIL_OVER_DATABASE_DICTIONARY['PRIMARY'],
-        # 'HOST': 'pranav-project-instance-1.clzzjqzfbtse.us-east-1.rds.amazonaws.com',
         'PORT': '5432',
     }
 }
@@ -169,7 +168,7 @@ LOGIN_URL = "login"
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 AUTO_LOGOUT = {
-    'IDLE_TIME': timedelta(minutes=10),
+    'IDLE_TIME': timedelta(minutes=5),
     'SESSION_TIME': timedelta(minutes=60),
     'MESSAGE': 'The session has expired. Please login again to continue.',
     'REDIRECT_TO_LOGIN_IMMEDIATELY': True,
