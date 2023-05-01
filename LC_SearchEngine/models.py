@@ -1,10 +1,6 @@
 from django.db import models
-import pgtrigger
 
 
-@pgtrigger.register(
-    pgtrigger.Protect(name='protect_inserts', operation=pgtrigger.Insert)
-)
 class LeetcodeData(models.Model):
     id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=100, null=True, blank=True)
