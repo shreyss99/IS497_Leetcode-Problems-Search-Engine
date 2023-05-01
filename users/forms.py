@@ -13,14 +13,12 @@ class UserUpdateForm(forms.ModelForm):
 
 
 class ProfileUpdateForm(forms.ModelForm):
-
     class Meta:
         model = Profile
         fields = ['image']
 
 
 class RegistrationForm(UserCreationForm):
-
     email = forms.EmailField()
 
     ROLE_OPTIONS = [('user', 'User'), ('contributor', 'Contributor')]
