@@ -95,11 +95,6 @@ WSGI_APPLICATION = "DBAS_Project_LC_SearchEngine.wsgi.application"
 
 SECRET_KEY = get_secret('SECRET_KEY')
 
-FAIL_OVER_DATABASE_DICTIONARY = {
-    'PRIMARY': 'pranav-project.cluster-clzzjqzfbtse.us-east-1.rds.amazonaws.com',
-    'SECONDARY': 'pranav-project-reader.clzzjqzfbtse.us-east-1.rds.amazonaws.com'
-}
-
 DATABASES = {
     "readonly": {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -110,8 +105,6 @@ DATABASES = {
         'NAME': 'leetcode',
         'USER': 'contributor',
         'PASSWORD': get_secret('DB_PASSWORD'),
-        # 'HOST': FAIL_OVER_DATABASE_DICTIONARY['SECONDARY'],
-        # 'HOST': FAIL_OVER_DATABASE_DICTIONARY['PRIMARY'],
         'HOST': get_secret('FAIL_OVER_DATABASE_DICTIONARY')['PRIMARY'],
         # 'HOST': get_secret('FAIL_OVER_DATABASE_DICTIONARY')['SECONDARY'],
         'PORT': '5432',
