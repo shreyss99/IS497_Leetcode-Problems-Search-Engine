@@ -18,7 +18,7 @@ Data Set:
 
 The dataset that we have chosen is the ‘Leetcode Problem Dataset’ available on Kaggle. The dataset consists of 1825 leetcode problems and various 19 features like the problem title, its URL, the description of the problem, its frequency, solution link, if it requires premium subscription or not and so on. The dataset is 2.22 MB.
 
-https://www.kaggle.com/datasets/gzipchrist/leetcode-problem-datasetLinks to an external site.
+https://www.kaggle.com/datasets/gzipchrist/leetcode-problem-dataset
 
 Project Goals:
 
