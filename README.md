@@ -1,4 +1,4 @@
-# IS497_Database-Administration-and-Scaling
+# Leetcode-Problems-Search-Engine
 
 ## Project Title: Leetcode Problems Web Application with Aurora and AWS
 
