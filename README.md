@@ -85,7 +85,24 @@ Before you begin, ensure you have the following installed:
     python manage.py migrate
     ```
 
-6. **Create Superuser (Optional)**
+6. **Create the AWS Aurora Database:
+
+   Populate the Leetcode dataset by creating a table using the schema as specified in [Screenshots and AWS Cost Estimation](Final_Project-Leetcode_ProblemSearch_Engine.pdf)
+
+7. **Create the secrets.json to store the secret keys for authenticating AWS Aurora (PostgreSQL flavour) database with the web application:
+
+    ```
+    {
+        "SECRET_KEY": "<DJANGO SECRET KEY>",
+        "DB_PASSWORD": "<PASSOWRD TO AUTHENTICATE THE DATABASE>",
+        "FAIL_OVER_DATABASE_DICTIONARY": {
+            "PRIMARY": "<AWS ENDPOINT FOR THE PRIMARY INSTANCE OF THE DATABASE>",
+            "SECONDARY": "<AWS ENDPOINT FOR THE SECONDARY INSTANCE OF THE DATABASE>"
+        }
+    }
+    ```
+
+8. **Create Superuser (Optional)**
 
     If your app uses Django's admin panel, create a superuser account to access it:
 
@@ -93,7 +110,7 @@ Before you begin, ensure you have the following installed:
     python manage.py createsuperuser
     ```
 
-7. **Run the Development Server**
+9. **Run the Development Server**
 
     Start the local development server:
 
@@ -103,15 +120,15 @@ Before you begin, ensure you have the following installed:
 
     Your app should now be accessible at `http://127.0.0.1:8000/`.
 
-8. **Access the Admin Panel**
+10. **Access the Admin Panel**
 
     If you created a superuser, access the admin panel at `http://127.0.0.1:8000/admin/` and log in with your superuser credentials.
 
-9. **Start Developing**
+11. **Start Developing**
 
     You can now start working on your Django app locally. Make changes to your code, templates, and static files. The development server will automatically reload as you save changes.
 
-10. **Deactivate the Virtual Environment**
+12. **Deactivate the Virtual Environment**
 
     When you're done working, deactivate the virtual environment:
 
