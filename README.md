@@ -43,7 +43,7 @@ Before you begin, ensure you have the following installed:
     Open your terminal and navigate to the directory where you want to store your project. Run the following command to clone your Django project repository:
 
     ```bash
-    git clone https://github.com/your-username/your-django-app.git
+    git clone https://github.com/shreyss99/Leetcode-Problems-Search-Engine.git
     ```
 
 2. **Create a Virtual Environment**
@@ -122,14 +122,13 @@ Before you begin, ensure you have the following installed:
 #### Additional Notes
 
 - Remember to update the `settings.py` file for database settings, static files, security settings, and other configurations as needed for your local environment.
-
 - Always keep your sensitive information (like secret keys, database passwords, etc.) in environment variables or configuration files that are not tracked by version control.
-
 - This guide assumes a basic understanding of Django. If you're new to Django, consider following the official Django tutorial to get familiar with the framework.
 
 Now you're all set to develop and test your Django app on your local machine. Happy coding!
 
 
+
 ### Project Results and Screenshots:
 
-[Screenshots](Final_Project-Leetcode_ProblemSearch_Engine.pdf)
+[Screenshots and AWS Cost Estimation](Final_Project-Leetcode_ProblemSearch_Engine.pdf)
