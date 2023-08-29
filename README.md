@@ -27,4 +27,4 @@ https://www.kaggle.com/datasets/gzipchrist/leetcode-problem-dataset
 
 ## Project Results and Screenshots:
 
-[Screenshots](DBAS - IS497 Final Project - Leetcode ProblemSearch Engine.pdf)
+[Screenshots](Final_Project-Leetcode_ProblemSearch_Engine.pdf)
