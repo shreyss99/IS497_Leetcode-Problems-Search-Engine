@@ -24,3 +24,7 @@ https://www.kaggle.com/datasets/gzipchrist/leetcode-problem-dataset
 * To demonstrate how Aurora and AWS can be used to build a scalable and performant web application.
 * To implement a simple yet functional search engine where users can enter their query parameters through a simple form and get results.
 * To ensure the web application is secure, with appropriate access controls and communication protocols in place.
+
+## Project Results and Screenshots:
+
+[Screenshots](DBAS - IS497 Final Project - Leetcode ProblemSearch Engine.pdf)
