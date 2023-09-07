@@ -1,4 +1,4 @@
-# Leetcode-Problems-Search-Engine
+# Leetcode-Problems-Web-Application
 
 ## Project Title: Leetcode Problems Web Application with Aurora and AWS
 
