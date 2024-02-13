@@ -1,6 +1,6 @@
-# Leetcode-Problems-Web-Application
+# LeetScout
 
-## Project Title: Leetcode Problems Web Application with Aurora and AWS
+## Project Idea: Leetcode Problems Web Application with Aurora and AWS
 
 ### Overview and Goals:
 
