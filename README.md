@@ -13,7 +13,7 @@ Our project aims to build a scalable web application using Aurora as the databas
 ### Technologies Used:
 
 * AWS Aurora: as the database engine
-* AWS EC2: as the cloud server
+* AWS RDS
 * AWS IAM
 * Django: as the web application framework 
 
