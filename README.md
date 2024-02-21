@@ -1,4 +1,4 @@
-# LeetScout
+# Leetcode Problem Search Application
 
 ## Project Idea: Leetcode Problems Web Application with Aurora and AWS
 
